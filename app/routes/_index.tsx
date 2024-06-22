@@ -9,7 +9,6 @@ import {
   CardHeader,
   CardTitle,
   HStack,
-  Stack,
   Textarea,
 } from '~/components/ui'
 import { schema } from '~/schema'
@@ -28,7 +27,7 @@ export default function Index() {
   const { setInput, object } = useObject({ api: '/resources/api', schema })
 
   return (
-    <div className="flex flex-col gap-4 p-4 font-sans">
+    <div className="grid h-dvh grid-cols-1 grid-rows-[auto_auto_1fr] gap-4 p-4">
       <h1 className="text-3xl">generate Artifacts using gpt-4o</h1>
 
       <form
@@ -47,7 +46,7 @@ export default function Index() {
         </HStack>
       </form>
 
-      <Stack>
+      <div className="grid grid-cols-1 grid-rows-[auto_1fr_auto] gap-4 overflow-auto">
         {object?.shortReply && <div>{object?.shortReply}</div>}
 
         <div className="grid grid-cols-3 gap-4">
@@ -84,7 +83,7 @@ export default function Index() {
             </CardContent>
           </Card>
         )}
-      </Stack>
+      </div>
     </div>
   )
 }
